@@ -1,0 +1,147 @@
+fileFormatVersion: 2
+guid: 7c6998c2b2d77914b911c0d5238d3d7c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: BackTire
+    100002: BackTireSuspension
+    100004: Cockpit
+    100006: FrontLeftTire
+    100008: FrontRightTire
+    100010: //RootNode
+    100012: Propeller
+    100014: TireSuspension
+    100016: TireSuspension.001
+    100018: LeftTireSuspension
+    100020: RightTireSuspension
+    400000: BackTire
+    400002: BackTireSuspension
+    400004: Cockpit
+    400006: FrontLeftTire
+    400008: FrontRightTire
+    400010: //RootNode
+    400012: Propeller
+    400014: TireSuspension
+    400016: TireSuspension.001
+    400018: LeftTireSuspension
+    400020: RightTireSuspension
+    2100000: P51 Mustang.001
+    2300000: BackTire
+    2300002: BackTireSuspension
+    2300004: Cockpit
+    2300006: FrontLeftTire
+    2300008: FrontRightTire
+    2300010: //RootNode
+    2300012: Propeller
+    2300014: TireSuspension
+    2300016: TireSuspension.001
+    2300018: LeftTireSuspension
+    2300020: RightTireSuspension
+    3300000: BackTire
+    3300002: BackTireSuspension
+    3300004: Cockpit
+    3300006: FrontLeftTire
+    3300008: FrontRightTire
+    3300010: //RootNode
+    3300012: Propeller
+    3300014: TireSuspension
+    3300016: TireSuspension.001
+    3300018: LeftTireSuspension
+    3300020: RightTireSuspension
+    4300000: P-51 Mustang
+    4300002: TireSuspension
+    4300004: Propeller
+    4300006: BackTireSuspension
+    4300008: FrontLeftTire
+    4300010: FrontRightTire
+    4300012: BackTire
+    4300014: Cockpit
+    4300016: TireSuspension.001
+    4300018: LeftTireSuspension
+    4300020: RightTireSuspension
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

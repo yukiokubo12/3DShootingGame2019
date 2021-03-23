@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4980314ff247f9c4d98314085b217119, type: 3}
+  m_Name: GameDatabase
+  m_EditorClassIdentifier: 
+  maxID: 6
+  maxWeaponID: 0
+  ammoDatabase:
+  - ammoName: 9mm
+    projectileType: 0
+    ammoType: 0
+  - ammoName: 7mm
+    projectileType: 0
+    ammoType: 1
+  - ammoName: 105mm
+    projectileType: 0
+    ammoType: 2
+  - ammoName: .45
+    projectileType: 0
+    ammoType: 3
+  weaponDatabase:
+  - {fileID: 6346489128522096591, guid: e805b756ece5b5445adc3e8e358e9634, type: 3}
+  - {fileID: 2232815580688624898, guid: 3a37ca1e7b8bb7648945e79904bbe33e, type: 3}
+  - {fileID: 2946171424900972181, guid: 79693d974fe0f9f4686032de92c25054, type: 3}
+  - {fileID: 5219211674675218222, guid: 4bfed4e5b93f1a0479b94042747eef36, type: 3}
+  - {fileID: 7029947580969654138, guid: 5e74814cefa5e7043865ade644aa6940, type: 3}
+  - {fileID: 5720046787138129814, guid: c33606be194d5ee4391c1c559b63d868, type: 3}
+  - {fileID: 7903581623156946358, guid: ea623a0d73bdb0046b05ac2d54433be1, type: 3}
