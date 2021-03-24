@@ -37,6 +37,10 @@ public class StageManager : MonoBehaviour
         this.field3 = GameObject.Find("Field3");
         this.field4 = GameObject.Find("Field4");
         // this.fields.SetActive(false);
+        this.field1.SetActive(false);
+        this.field2.SetActive(false);
+        this.field3.SetActive(false);
+        this.field4.SetActive(false);
     }
 
     void Update()
@@ -63,6 +67,32 @@ public class StageManager : MonoBehaviour
             Invoke("AppearShip", 20);
         }
         //フィールドの動的生成
+        if(player.transform.position.z > -200)
+        {
+            this.field1.SetActive(true);
+            Debug.Log("フィールド1生成");
+        }
+        if(player.transform.position.z > 200)
+        {
+            this.field2.SetActive(true);
+            Debug.Log("フィールド2生成");
+        }
+        if(player.transform.position.z > 600)
+        {
+            this.field1.SetActive(true);
+            Debug.Log("フィールド3生成");
+        }
+        if(player.transform.position.z > 1000)
+        {
+            this.field1.SetActive(true);
+            Debug.Log("フィールド4生成");
+        }
+
+        void MakeField()
+        {
+            float distance = Vector3.Distance(player.transform.position, field1.transform.position);
+            print(distance);
+        }
         // this.offsetZ = 100; 
         // if(player.transform.position.z + offsetZ >= field1.transform.position.z)
         // {
