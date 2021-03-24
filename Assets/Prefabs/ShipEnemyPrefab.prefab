@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8481566506661622203}
   - component: {fileID: 8481566506661622200}
   m_Layer: 0
-  m_Name: ShipEnemy
+  m_Name: ShipEnemyPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,6 +251,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShipBulletController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903834985555797332, guid: 1c7bb8be2285649b89aea218dad57cff,
+        type: 3}
+      propertyPath: speed
+      value: -10000
       objectReference: {fileID: 0}
     - target: {fileID: 2903834985555797332, guid: 1c7bb8be2285649b89aea218dad57cff,
         type: 3}
