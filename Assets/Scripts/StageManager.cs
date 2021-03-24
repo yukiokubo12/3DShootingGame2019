@@ -10,6 +10,8 @@ public class StageManager : MonoBehaviour
     public GameObject player;
     public GameObject planePrefab;
     public GameObject tankPrefab;
+    public GameObject shipPrefab;
+
     private float delta;
     private int numberOfPlanes;
     private int numberOfTanks;
@@ -20,6 +22,8 @@ public class StageManager : MonoBehaviour
     public GameObject field3;
     public GameObject field4;
     private float offsetZ;
+
+    private bool isAppearShip = false;
 
     void Start()
     {
@@ -52,6 +56,11 @@ public class StageManager : MonoBehaviour
             delta = 0f;
             AppearPlane();
             Invoke("AppearTank", 10);
+        }
+        if(!isAppearShip)
+        {
+            isAppearShip = true;
+            Invoke("AppearShip", 20);
         }
         //フィールドの動的生成
         // this.offsetZ = 100; 
@@ -113,5 +122,16 @@ public class StageManager : MonoBehaviour
             numberOfTanks++;
             tank.transform.position = new Vector3(offsetX, offsetY, this.player.transform.position.z + offsetZ);
         }
+    }
+    void AppearShip()
+    {
+        //プレイヤー爆発のとき
+        if(player == null) return;
+        int offsetX = 0;
+        int offsetY = -15;
+        int offsetZ = 300;
+        GameObject ship = Instantiate(shipPrefab);
+        Debug.Log("船出現");
+        ship.transform.position = new Vector3(offsetX, offsetY, this.player.transform.position.z + offsetZ);
     }
 }

@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
    {
        //プレイヤーHP 
        this.playerHPSlider.value = 1;
-       this.maxHp = 50;
+       this.maxHp = 70;
        this.currentHp = this.maxHp;
        
        this.myRigidbody = GetComponent<Rigidbody>();
@@ -105,7 +105,14 @@ public class PlayerController : MonoBehaviour
            playerHPSlider.value = (float)currentHp / maxHp;
        }
        //タンクと衝突
-       if(other.gameObject.tag == "TankTag")
+       if(other.gameObject.tag == "TankTag" || other.gameObject.tag == "TankBulletTag")
+       {
+           shake.Shake(0.25f, 0.1f);
+           int damage = 20;
+           this.currentHp -= damage;
+           playerHPSlider.value = (float)currentHp / maxHp;
+       }
+       if(other.gameObject.tag == "ShipBulletTag")
        {
            shake.Shake(0.25f, 0.1f);
            int damage = 20;

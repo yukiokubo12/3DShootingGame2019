@@ -27,7 +27,7 @@ public class BulletController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         // MP
         this.playerMPSlider.value = 1;
-        this.maxMp = 100;
+        this.maxMp = 150;
         this.currentMp = this.maxMp;
     }
 
