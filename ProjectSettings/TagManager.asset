@@ -13,6 +13,7 @@ TagManager:
   - PlayerTag
   - TankBulletTag
   - ShipBulletTag
+  - ShipEnemyTag
   layers:
   - Default
   - TransparentFX

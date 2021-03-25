@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipBulletController : MonoBehaviour
+public class ShipRightBulletController : MonoBehaviour
 {
     public GameObject shipbullet;
     public GameObject shipbulletPos;

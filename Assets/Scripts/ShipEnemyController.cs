@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipEnemyController : MonoBehaviour
 {
@@ -17,12 +18,26 @@ public class ShipEnemyController : MonoBehaviour
     AudioSource audioSource;
     public AudioClip shipExplosionSound;
 
+    //クリア処理
+    public GameObject clearText;
+    public GameObject titleButton;
+    public GameObject retryButton;
+
     void Start()
     {
-        this.maxShipHp = 100;
+        this.maxShipHp = 50;
         this.currentShipHp = this.maxShipHp;
         this.shipRigidbody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        
+        //クリア処理
+        this.clearText = GameObject.Find("ClearText");
+        this.retryButton = GameObject.Find("ToMainButton");
+        this.titleButton = GameObject.Find("ToTitleButton");
+        this.clearText.GetComponent<Text>().text = "Game Clear!!";
+        this.clearText.SetActive(false);
+        retryButton.SetActive(false);
+        titleButton.SetActive(false);
     }
 
     void Update()
@@ -45,10 +60,16 @@ public class ShipEnemyController : MonoBehaviour
         }
         if(this.currentShipHp <= 0)
         {
-            Destroy(this.gameObject);
+            retryButton.SetActive(true);
+            titleButton.SetActive(true);
+            this.clearText.SetActive(true);
+            Debug.Log("ゲームクリア");
+            this.retryButton.GetComponent<Button>();
+            this.gameObject.SetActive(false);
             GameObject explosion = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
             // audioSource.PlayOneShot(tankExplosionSound);
             // Destroy(explosion, 0.3f);
+
             Debug.Log("敵爆発");
         }
     }

@@ -74,9 +74,10 @@ public class BulletController : MonoBehaviour
             time -= Time.deltaTime;
         }
     }
+    //MP回復
     void RecoverMp()
     {
-        this.currentMp += 0.02;
+        this.currentMp += 0.12;
         playerMPSlider.value = (float)currentMp / maxMp;
     }
     IEnumerator MPCoroutine()

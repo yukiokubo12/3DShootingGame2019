@@ -37,10 +37,10 @@ public class StageManager : MonoBehaviour
         this.field3 = GameObject.Find("Field3");
         this.field4 = GameObject.Find("Field4");
         // this.fields.SetActive(false);
-        this.field1.SetActive(false);
-        this.field2.SetActive(false);
-        this.field3.SetActive(false);
-        this.field4.SetActive(false);
+        // this.field1.SetActive(false);
+        // this.field2.SetActive(false);
+        // this.field3.SetActive(false);
+        // this.field4.SetActive(false);
     }
 
     void Update()
@@ -67,53 +67,32 @@ public class StageManager : MonoBehaviour
             Invoke("AppearShip", 20);
         }
         //フィールドの動的生成
-        if(player.transform.position.z > -200)
-        {
-            this.field1.SetActive(true);
-            Debug.Log("フィールド1生成");
-        }
-        if(player.transform.position.z > 200)
-        {
-            this.field2.SetActive(true);
-            Debug.Log("フィールド2生成");
-        }
-        if(player.transform.position.z > 600)
-        {
-            this.field1.SetActive(true);
-            Debug.Log("フィールド3生成");
-        }
-        if(player.transform.position.z > 1000)
-        {
-            this.field1.SetActive(true);
-            Debug.Log("フィールド4生成");
-        }
+        // if(player.transform.position.z > -200)
+        // {
+        //     this.field1.SetActive(true);
+        //     Debug.Log("フィールド1生成");
+        // }
+        // if(player.transform.position.z > 200)
+        // {
+        //     this.field2.SetActive(true);
+        //     Debug.Log("フィールド2生成");
+        // }
+        // if(player.transform.position.z > 600)
+        // {
+        //     this.field1.SetActive(true);
+        //     Debug.Log("フィールド3生成");
+        // }
+        // if(player.transform.position.z > 1000)
+        // {
+        //     this.field1.SetActive(true);
+        //     Debug.Log("フィールド4生成");
+        // }
 
         void MakeField()
         {
             float distance = Vector3.Distance(player.transform.position, field1.transform.position);
             print(distance);
         }
-        // this.offsetZ = 100; 
-        // if(player.transform.position.z + offsetZ >= field1.transform.position.z)
-        // {
-        //     this.field1.SetActive(true);
-        //     Debug.Log("フィールド1生成");
-        // }
-        // if(player.transform.position.z + offsetZ <= field2.transform.position.z)
-        // {
-        //     this.field2.SetActive(true);
-        //     Debug.Log("フィールド2生成");
-        // }
-        // if(player.transform.position.z + offsetZ <= field3.transform.position.z)
-        // {
-        //     this.field3.SetActive(true);
-        //     Debug.Log("フィールド3生成");
-        // }
-        // if(player.transform.position.z + offsetZ <= field4.transform.position.z)
-        // {
-        //     this.field4.SetActive(true);
-        //     Debug.Log("フィールド4生成");
-        // }
     }
 
     //敵の生成（飛行機）
@@ -125,8 +104,8 @@ public class StageManager : MonoBehaviour
         //飛行機の数指定
         for(int i = 0; i <= 1; i++)
         {
-            int offsetX = Random.Range(0, 13);
-            int offsetY = Random.Range(0, 13);
+            int offsetX = Random.Range(-10, 13);
+            int offsetY = Random.Range(-8, 13);
             int offsetZ = Random.Range(250, 350);
             GameObject plane = Instantiate(planePrefab);
             // Debug.Log("敵出現");
@@ -144,7 +123,7 @@ public class StageManager : MonoBehaviour
         //タンクの数指定
         for(int a = 0; a <= 1; a++)
         {
-            int offsetX = Random.Range(0, 15);
+            int offsetX = Random.Range(-10, 15);
             int offsetY = -15;
             int offsetZ = Random.Range(250, 350);
             GameObject tank = Instantiate(tankPrefab);

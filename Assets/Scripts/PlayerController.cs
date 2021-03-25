@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour
    
    //ゲームオーバー処理
    private GameObject stateText;
-   private GameObject retryButton;
-   private GameObject titleButton;
+   public GameObject retryButton;
+   public GameObject titleButton;
    //カメラシェイク
    public CameraShake shake;
 
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
    {
        //プレイヤーHP 
        this.playerHPSlider.value = 1;
-       this.maxHp = 70;
+       this.maxHp = 120;
        this.currentHp = this.maxHp;
        
        this.myRigidbody = GetComponent<Rigidbody>();
