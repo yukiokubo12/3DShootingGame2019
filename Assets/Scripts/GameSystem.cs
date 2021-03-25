@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameSystem : MonoBehaviour
 {
     public Button toMainButton;
-
-    // public GameObject toMainButton;
+    public Button toTitleButton;
+    public Text clearText;
 
     void Start()
     {
@@ -26,7 +26,15 @@ public class GameSystem : MonoBehaviour
 
     public void ShowMainButton()
     {
-        // toMainButton = GetComponent<
-        this.toMainButton = GetComponent<Button>();
+        this.toMainButton.gameObject.SetActive(true);
+    }
+    public void ShowTitleButton()
+    {
+        this.toTitleButton.gameObject.SetActive(true);
+    }
+    public void ShowClearText()
+    {
+        this.clearText.GetComponent<Text>().text = "Game Clear!!";
+        this.clearText.gameObject.SetActive(true);
     }
 }

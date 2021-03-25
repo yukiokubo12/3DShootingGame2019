@@ -67,8 +67,11 @@ public class ShipEnemyController : MonoBehaviour
             scoreManager.GetComponent<ScoreManager>().SetScore(1);
 
             var toMainButton = GameObject.Find("GameSystem");
-            toMainButton.SetActive(true);
             toMainButton.GetComponent<GameSystem>().ShowMainButton();
+            var toTitleButton = GameObject.Find("GameSystem");
+            toTitleButton.GetComponent<GameSystem>().ShowTitleButton();
+            var clearText = GameObject.Find("GameSystem");
+            clearText.GetComponent<GameSystem>().ShowClearText();
 
             // audioSource.PlayOneShot(tankExplosionSound);
             // Destroy(explosion, 0.3f);
