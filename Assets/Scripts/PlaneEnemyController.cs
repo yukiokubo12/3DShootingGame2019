@@ -32,6 +32,8 @@ public class PlaneEnemyController : MonoBehaviour
         {
             Destroy(this.gameObject);
             GameObject explosion = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
+            var scoreManager = GameObject.Find("GameSystem");
+            scoreManager.GetComponent<ScoreManager>().SetScore(1);
             // audioSource.PlayOneShot(planeExplosionSound);
             Destroy(explosion, 0.3f);
             Debug.Log("敵爆発");

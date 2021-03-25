@@ -49,6 +49,8 @@ public class TankEnemyController : MonoBehaviour
             GameObject explosion = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
             // audioSource.PlayOneShot(tankExplosionSound);
             Destroy(explosion, 0.3f);
+            var scoreManager = GameObject.Find("GameSystem");
+            scoreManager.GetComponent<ScoreManager>().SetScore(1);
             Debug.Log("敵爆発");
         }
     }

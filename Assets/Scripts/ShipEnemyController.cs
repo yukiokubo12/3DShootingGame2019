@@ -19,9 +19,9 @@ public class ShipEnemyController : MonoBehaviour
     public AudioClip shipExplosionSound;
 
     //クリア処理
-    public GameObject clearText;
-    public GameObject titleButton;
-    public GameObject retryButton;
+    // public GameObject clearText;
+    // public GameObject titleButton;
+    // public GameObject retryButton;
 
     void Start()
     {
@@ -31,13 +31,13 @@ public class ShipEnemyController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         
         //クリア処理
-        this.clearText = GameObject.Find("ClearText");
-        this.retryButton = GameObject.Find("ToMainButton");
-        this.titleButton = GameObject.Find("ToTitleButton");
-        this.clearText.GetComponent<Text>().text = "Game Clear!!";
-        this.clearText.SetActive(false);
-        retryButton.SetActive(false);
-        titleButton.SetActive(false);
+        // this.clearText = GameObject.Find("ClearText");
+        // this.retryButton = GameObject.Find("ToMainButton");
+        // this.titleButton = GameObject.Find("ToTitleButton");
+        // this.clearText.GetComponent<Text>().text = "Game Clear!!";
+        // this.clearText.SetActive(false);
+        // retryButton.SetActive(false);
+        // titleButton.SetActive(false);
     }
 
     void Update()
@@ -60,13 +60,20 @@ public class ShipEnemyController : MonoBehaviour
         }
         if(this.currentShipHp <= 0)
         {
-            retryButton.SetActive(true);
-            titleButton.SetActive(true);
-            this.clearText.SetActive(true);
+            // retryButton.SetActive(true);
+            // titleButton.SetActive(true);
+            // this.clearText.SetActive(true);
             Debug.Log("ゲームクリア");
-            this.retryButton.GetComponent<Button>();
-            this.gameObject.SetActive(false);
+            // this.retryButton.GetComponent<Button>();
+            // this.gameObject.SetActive(false);
             GameObject explosion = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
+            var scoreManager = GameObject.Find("GameSystem");
+            scoreManager.GetComponent<ScoreManager>().SetScore(1);
+            var toMainButton = GameObject.Find("GameSystem");
+            toMainButton.GetComponent<GameSystem>().ShowMainButton();
+
+            // var toMainButton = GameObject.Find("Canvas");
+            // toMainButton.GetComponent<ToMainButton>();
             // audioSource.PlayOneShot(tankExplosionSound);
             // Destroy(explosion, 0.3f);
 

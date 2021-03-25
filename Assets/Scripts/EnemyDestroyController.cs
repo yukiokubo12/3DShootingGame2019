@@ -16,7 +16,6 @@ public class EnemyDestroyController : MonoBehaviour
         if(player == null || this.transform.position.z < player.transform.position.z)
         {
             Destroy(this.gameObject);
-            // Debug.Log("敵消去");
         }
     }
 }

@@ -37,7 +37,7 @@ public class BulletController : MonoBehaviour
         if(Input.GetKey(KeyCode.A) && time <= 0f && isShotEnable)
         {
             GameObject bullets = Instantiate(bullet) as GameObject;
-            bullets.GetComponent<ScoreController>().SetText(scoreText);
+            // bullets.GetComponent<ScoreController>().SetText(scoreText);
             
             int attack = 10;
             this.currentMp -= attack;
