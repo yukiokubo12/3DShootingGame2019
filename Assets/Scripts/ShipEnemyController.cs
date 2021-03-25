@@ -60,20 +60,16 @@ public class ShipEnemyController : MonoBehaviour
         }
         if(this.currentShipHp <= 0)
         {
-            // retryButton.SetActive(true);
-            // titleButton.SetActive(true);
-            // this.clearText.SetActive(true);
             Debug.Log("ゲームクリア");
-            // this.retryButton.GetComponent<Button>();
-            // this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             GameObject explosion = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
             var scoreManager = GameObject.Find("GameSystem");
             scoreManager.GetComponent<ScoreManager>().SetScore(1);
+
             var toMainButton = GameObject.Find("GameSystem");
+            toMainButton.SetActive(true);
             toMainButton.GetComponent<GameSystem>().ShowMainButton();
 
-            // var toMainButton = GameObject.Find("Canvas");
-            // toMainButton.GetComponent<ToMainButton>();
             // audioSource.PlayOneShot(tankExplosionSound);
             // Destroy(explosion, 0.3f);
 

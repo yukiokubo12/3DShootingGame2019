@@ -8,6 +8,13 @@ public class GameSystem : MonoBehaviour
 {
     public Button toMainButton;
 
+    // public GameObject toMainButton;
+
+    void Start()
+    {
+
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("Main");
@@ -19,6 +26,7 @@ public class GameSystem : MonoBehaviour
 
     public void ShowMainButton()
     {
+        // toMainButton = GetComponent<
         this.toMainButton = GetComponent<Button>();
     }
 }
