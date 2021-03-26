@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
    //カメラシェイク
    public CameraShake shake;
 
+   float minAngle = 0.0f;
+   float maxAngle = 20.0f;
+   private bool isRotate = true;
+
    void Start()
    {
        //プレイヤーHP 
@@ -54,15 +58,27 @@ public class PlayerController : MonoBehaviour
    void Update()
    {
        this.myRigidbody.velocity = new Vector3(0, 0, this.velocityZ);
+       float speed = 20f;
+       float step = speed * Time.deltaTime;
 
        float inputVelocityX = 0;
-       if(Input.GetKey(KeyCode.LeftArrow) && -this.movableRangeX < this.transform.position.x)
+       if(Input.GetKey(KeyCode.LeftArrow) && -this.movableRangeX < this.transform.position.x && isRotate)
        {
            inputVelocityX = -this.velocityX;
+           transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 20f), step);
        }
        else if(Input.GetKey(KeyCode.RightArrow) && this.transform.position.x < this.movableRangeX)
        {
            inputVelocityX = this.velocityX;
+           transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, -20f), step);
+       }
+       if(Input.GetKeyUp(KeyCode.LeftArrow))
+       {
+           transform.rotation = Quaternion.Euler(0, 0, 0);
+       }
+       if(Input.GetKeyUp(KeyCode.RightArrow))
+       {
+           transform.rotation = Quaternion.Euler(0, 0, 0);
        }
 
        float inputVelocityY = 0;
@@ -91,7 +107,7 @@ public class PlayerController : MonoBehaviour
        //飛行機、建物と衝突
        if(other.gameObject.tag == "PlaneTag" || other.gameObject.tag == "BuildingTag")
        {
-           shake.Shake(0.25f, 0.1f);
+        //    shake.Shake(0.25f, 0.1f);
            int damage = 10;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -99,7 +115,7 @@ public class PlayerController : MonoBehaviour
        //飛行機弾との衝突
        if(other.gameObject.tag == "PlaneBulletTag")
        {
-           shake.Shake(0.25f, 0.1f);
+        //    shake.Shake(0.25f, 0.1f);
            int damage = 5;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -107,14 +123,14 @@ public class PlayerController : MonoBehaviour
        //タンクと衝突
        if(other.gameObject.tag == "TankTag" || other.gameObject.tag == "TankBulletTag")
        {
-           shake.Shake(0.25f, 0.1f);
+        //    shake.Shake(0.25f, 0.1f);
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
        }
        if(other.gameObject.tag == "ShipBulletTag")
        {
-           shake.Shake(0.25f, 0.1f);
+        //    shake.Shake(0.25f, 0.1f);
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;

@@ -51,7 +51,7 @@ public class TankEnemyController : MonoBehaviour
             Destroy(explosion, 0.3f);
             var scoreManager = GameObject.Find("GameSystem");
             scoreManager.GetComponent<ScoreManager>().SetScore(1);
-            Debug.Log("敵爆発");
+            // Debug.Log("敵爆発");
         }
     }
 }

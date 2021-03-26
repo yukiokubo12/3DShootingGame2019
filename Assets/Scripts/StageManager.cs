@@ -64,7 +64,7 @@ public class StageManager : MonoBehaviour
         if(!isAppearShip)
         {
             isAppearShip = true;
-            Invoke("AppearShip", 20);
+            Invoke("AppearShip", 26);
         }
         //フィールドの動的生成
         // if(player.transform.position.z > -200)
@@ -127,7 +127,7 @@ public class StageManager : MonoBehaviour
             int offsetY = -15;
             int offsetZ = Random.Range(250, 350);
             GameObject tank = Instantiate(tankPrefab);
-            Debug.Log("タンク出現");
+            // Debug.Log("タンク出現");
             numberOfTanks++;
             tank.transform.position = new Vector3(offsetX, offsetY, this.player.transform.position.z + offsetZ);
         }
@@ -140,7 +140,7 @@ public class StageManager : MonoBehaviour
         int offsetY = -15;
         int offsetZ = 300;
         GameObject ship = Instantiate(shipPrefab);
-        Debug.Log("船出現");
+        // Debug.Log("船出現");
         ship.transform.position = new Vector3(offsetX, offsetY, this.player.transform.position.z + offsetZ);
     }
 }

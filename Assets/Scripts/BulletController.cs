@@ -44,7 +44,6 @@ public class BulletController : MonoBehaviour
             playerMPSlider.value = (float)currentMp / maxMp;
             time = interval;
             bullets.transform.position = bulletPos.transform.position;
-            Debug.Log("プレイヤー弾発射");
             Vector3 force;
             force = this.gameObject.transform.forward * speed;
             bullets.GetComponent<Rigidbody>().AddForce(force);

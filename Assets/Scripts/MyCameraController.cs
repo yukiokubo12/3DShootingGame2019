@@ -21,7 +21,6 @@ public class MyCameraController : MonoBehaviour
         {
         this.transform.position = new Vector3(0, this.transform.position.y, this.player.transform.position.z - difference);
         transform.position = player.transform.position + offset;
-        transform.rotation = player.transform.rotation;
         }
     }
 }

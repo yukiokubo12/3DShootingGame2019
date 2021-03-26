@@ -36,7 +36,7 @@ public class PlaneEnemyController : MonoBehaviour
             scoreManager.GetComponent<ScoreManager>().SetScore(1);
             // audioSource.PlayOneShot(planeExplosionSound);
             Destroy(explosion, 0.3f);
-            Debug.Log("敵爆発");
+            // Debug.Log("敵爆発");
         }
     }
 }
