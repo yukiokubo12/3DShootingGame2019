@@ -21,7 +21,7 @@ public class BackGroundManager : MonoBehaviour
     void Update()
     {
         Invoke("AppearLeftGrounds", 26);
-        Invoke("AppearRighttGrounds", 26);
+        Invoke("AppearRightGrounds", 26);
         if(this.leftGrounds.transform.position.z < player.transform.position.z + 400)
         {
             Invoke("DestroyLeftGrounds", 10);

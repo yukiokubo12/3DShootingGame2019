@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
    private float velocityY = 50f;
    private float velocityZ = 50f;
    //移動範囲
-   private float movableRangeX = 10f;
+   private float movableRangeX = 15f;
    private float movableRangeY = 11f;
    private float coefficient = 0.99f;
 
@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour
    //カメラシェイク
    public CameraShake shake;
 
-   float minAngle = 0.0f;
-   float maxAngle = 20.0f;
    private bool isRotate = true;
 
    void Start()
@@ -107,7 +105,11 @@ public class PlayerController : MonoBehaviour
        //飛行機、建物と衝突
        if(other.gameObject.tag == "PlaneTag" || other.gameObject.tag == "BuildingTag")
        {
-        //    shake.Shake(0.25f, 0.1f);
+           shake.Shake(0.25f, 0.1f);
+
+        //    var shake = GameObject.Find("MainCamera") ;
+        //    shake.GetComponent<CameraShake>().Shake(1f, 1f);
+        //    Debug.Log("カメラ揺れ");
            int damage = 10;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -115,7 +117,7 @@ public class PlayerController : MonoBehaviour
        //飛行機弾との衝突
        if(other.gameObject.tag == "PlaneBulletTag")
        {
-        //    shake.Shake(0.25f, 0.1f);
+           shake.Shake(0.25f, 0.1f);
            int damage = 5;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -123,14 +125,14 @@ public class PlayerController : MonoBehaviour
        //タンクと衝突
        if(other.gameObject.tag == "TankTag" || other.gameObject.tag == "TankBulletTag")
        {
-        //    shake.Shake(0.25f, 0.1f);
+           shake.Shake(0.25f, 0.1f);
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
        }
        if(other.gameObject.tag == "ShipBulletTag")
        {
-        //    shake.Shake(0.25f, 0.1f);
+           shake.Shake(0.25f, 0.1f);
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
