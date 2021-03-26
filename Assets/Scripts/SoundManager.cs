@@ -21,7 +21,6 @@ public class SoundManager : MonoBehaviour
 
     public void PlaneExplosionSound()
     {
-        // AudioSource.PlayClipAtPoint(planeExplosionSound, transform.position);
         audioSource.PlayOneShot(planeExplosionSound);
     }
     public void TankExplosionSound()
@@ -44,5 +43,4 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(playerBulletSound);
         audioSource.volume = volume;
     }
-
 }

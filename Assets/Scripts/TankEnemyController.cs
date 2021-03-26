@@ -6,23 +6,15 @@ public class TankEnemyController : MonoBehaviour
 {
     private Rigidbody tankRigidbody;
     private float velocityZ = -5f;
-
     public int maxTankHp;
     public int currentTankHp;
-
-    //敵の爆発
     public GameObject explosionPrefab;
-
-    //爆発音
-    AudioSource audioSource;
-    public AudioClip tankExplosionSound;
 
     void Start()
     {
         this.maxTankHp = 30;
         this.currentTankHp = this.maxTankHp;
         this.tankRigidbody = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -47,14 +39,11 @@ public class TankEnemyController : MonoBehaviour
         {
             Destroy(this.gameObject);
             GameObject explosion = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
-            // audioSource.PlayOneShot(tankExplosionSound);
             var soundManager = GameObject.Find("SoundManager");
             soundManager.GetComponent<SoundManager>().TankExplosionSound();
-
             Destroy(explosion, 0.3f);
             var scoreManager = GameObject.Find("GameSystem");
             scoreManager.GetComponent<ScoreManager>().SetScore(1);
-            // Debug.Log("敵爆発");
         }
     }
 }

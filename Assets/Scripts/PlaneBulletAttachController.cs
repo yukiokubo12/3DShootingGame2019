@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlaneBulletAttachController : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "PlayerTag")
         {
-            if(other.gameObject.tag == "PlayerTag")
-            {
-                Destroy(this.gameObject);
-            }
+            Destroy(this.gameObject);
         }
+    }
 }

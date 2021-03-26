@@ -10,11 +10,6 @@ public class GameSystem : MonoBehaviour
     public Button toTitleButton;
     public Text clearText;
 
-    void Start()
-    {
-
-    }
-
     public void StartGame()
     {
         SceneManager.LoadScene("Main");
@@ -23,7 +18,6 @@ public class GameSystem : MonoBehaviour
     {
         SceneManager.LoadScene("Title");
     }
-
     public void ShowMainButton()
     {
         this.toMainButton.gameObject.SetActive(true);

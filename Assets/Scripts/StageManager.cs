@@ -15,7 +15,6 @@ public class StageManager : MonoBehaviour
     private float delta;
     private int numberOfPlanes;
     private int numberOfTanks;
-
     //フィールドの動的生成
     public GameObject field1;
     public GameObject field2;
@@ -30,7 +29,6 @@ public class StageManager : MonoBehaviour
         numberOfPlanes = 0;
         numberOfTanks = 0;
         this.player = GameObject.Find("Player");
-
         this.field1 = GameObject.Find("Field1");
         this.field2 = GameObject.Find("Field2");
         this.field3 = GameObject.Find("Field3");
@@ -62,39 +60,40 @@ public class StageManager : MonoBehaviour
             isAppearShip = true;
             Invoke("AppearShip", 26);
         }
-
         //フィールドの動的生成
         Invoke("MakeField2", 5);
         Invoke("MakeField3", 10);
-        if(player.transform.position.z > 400)
-        {
-            Destroy(this.field1);
-        }
-        if(player.transform.position.z > 800)
-        {
-            Destroy(this.field2);
-        }
-        if(player.transform.position.z > 1200)
-        {
-            Destroy(this.field3);
-        }
-
-        void MakeField2()
-        {
-            this.field2.GetComponent<GameObject>();
-        }
-        void MakeField3()
-        {
-            this.field3.SetActive(true);
-        }
+        Invoke("DestroyField1", 9);
+        Invoke("DestroyField2", 18);
+        Invoke("DestroyField3", 27);
     }
 
+    void MakeField2()
+    {
+        this.field2.GetComponent<GameObject>();
+        this.field2.SetActive(true);
+    }
+    void MakeField3()
+    {
+        this.field3.SetActive(true);
+    }
+    void DestroyField1()
+    {
+        Destroy(this.field1);
+    }
+    void DestroyField2()
+    {
+        Destroy(this.field2);
+    }
+    void DestroyField3()
+    {
+        Destroy(this.field3);
+    }
     //敵の生成（飛行機）
     void AppearPlane()
     {
         //プレイヤー爆発のとき
         if(player == null) return;
-
         //飛行機の数指定
         for(int i = 0; i <= 1; i++)
         {
@@ -113,7 +112,6 @@ public class StageManager : MonoBehaviour
     {
         //プレイヤー爆発のとき
         if(player == null) return;
-
         //タンクの数指定
         for(int a = 0; a <= 1; a++)
         {
@@ -121,7 +119,6 @@ public class StageManager : MonoBehaviour
             int offsetY = -15;
             int offsetZ = Random.Range(250, 350);
             GameObject tank = Instantiate(tankPrefab);
-            // Debug.Log("タンク出現");
             numberOfTanks++;
             tank.transform.position = new Vector3(offsetX, offsetY, this.player.transform.position.z + offsetZ);
         }
@@ -134,7 +131,6 @@ public class StageManager : MonoBehaviour
         int offsetY = -15;
         int offsetZ = 300;
         GameObject ship = Instantiate(shipPrefab);
-        // Debug.Log("船出現");
         ship.transform.position = new Vector3(offsetX, offsetY, this.player.transform.position.z + offsetZ);
     }
 }

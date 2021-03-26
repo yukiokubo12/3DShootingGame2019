@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    // public GameObject player;
-
    public void Shake(float duration, float magnitude)
    {
        StartCoroutine(DoShake(duration, magnitude));
    }
-   
-//    public void Shake(float duration, float magnitude)
-//    {
-//        StartCoroutine(DoShake(duration, magnitude));
-//    }
 
    private IEnumerator DoShake(float duration, float magnitude)
    {
@@ -30,19 +23,4 @@ public class CameraShake : MonoBehaviour
        }
        transform.localPosition = pos;
    }
-
-    // void Start()
-    // {
-    //     this.player = GameObject.Find("Player");
-    // }
-
-    // void Update()
-    // {
-    //     this.player.GetComponent<PlayerController>().Shakeable();
-    // }
-
-    // public void Shakeable()
-    // {
-    //     Shake(0.25f, 0.1f);
-    // }
 }

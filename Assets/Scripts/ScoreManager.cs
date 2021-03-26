@@ -13,12 +13,6 @@ public class ScoreManager : MonoBehaviour
     {
         score = 0;
         SetScore(0);
-        // scoreText = GameObject.Find("ScoreText");
-    }
-
-    void Update()
-    {
-
     }
 
     public void SetScore(int addScore)

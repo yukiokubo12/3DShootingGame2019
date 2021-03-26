@@ -15,7 +15,7 @@ public class ScoreController : MonoBehaviour
         SetScore();
     }
 
-    // /スコアの参照を渡す関数
+    // /スコアの参照を渡す
     public void SetText(Text scoreText)
     {
         this.scoreText = scoreText;

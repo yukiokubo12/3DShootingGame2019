@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //自機の爆発
+   //自機の爆発
    public GameObject explosionPrefab;
    //爆発音
    AudioSource audioSource;
@@ -19,14 +19,12 @@ public class PlayerController : MonoBehaviour
    //移動範囲
    private float movableRangeX = 15f;
    private float movableRangeY = 11f;
-   private float coefficient = 0.99f;
-
+   private float coefficient = 0.3f;
    private bool isEnd = false;
    //ステータス
    public int maxHp;
    public int currentHp;
    public Slider playerHPSlider;
-   
    //ゲームオーバー処理
    private GameObject stateText;
    public GameObject retryButton;
@@ -42,7 +40,6 @@ public class PlayerController : MonoBehaviour
        this.playerHPSlider.value = 1;
        this.maxHp = 120;
        this.currentHp = this.maxHp;
-       
        this.myRigidbody = GetComponent<Rigidbody>();
        audioSource = GetComponent<AudioSource>();
        this.stateText = GameObject.Find("GameOverText");
@@ -50,7 +47,6 @@ public class PlayerController : MonoBehaviour
        this.titleButton = GameObject.Find("ToTitleButton");
        retryButton.SetActive(false);
        titleButton.SetActive(false);
-
    }
 
    void Update()
@@ -58,7 +54,6 @@ public class PlayerController : MonoBehaviour
        this.myRigidbody.velocity = new Vector3(0, 0, this.velocityZ);
        float speed = 20f;
        float step = speed * Time.deltaTime;
-
        float inputVelocityX = 0;
        if(Input.GetKey(KeyCode.LeftArrow) && -this.movableRangeX < this.transform.position.x && isRotate)
        {
@@ -88,7 +83,7 @@ public class PlayerController : MonoBehaviour
        {
            inputVelocityY = this.velocityY;
        }
-       
+
        this.myRigidbody.velocity = new Vector3(inputVelocityX, inputVelocityY, velocityZ);
 
        if(this.isEnd)
@@ -106,10 +101,6 @@ public class PlayerController : MonoBehaviour
        if(other.gameObject.tag == "PlaneTag" || other.gameObject.tag == "BuildingTag")
        {
            shake.Shake(0.2f, 0.2f);
-
-        //    var shake = GameObject.Find("MainCamera") ;
-        //    shake.GetComponent<CameraShake>().Shake(1f, 1f);
-        //    Debug.Log("カメラ揺れ");
            int damage = 10;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -119,7 +110,7 @@ public class PlayerController : MonoBehaviour
        //飛行機弾との衝突
        if(other.gameObject.tag == "PlaneBulletTag")
        {
-           shake.Shake(0.25f, 0.1f);
+           shake.Shake(0.2f, 0.2f);
            int damage = 5;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -129,7 +120,7 @@ public class PlayerController : MonoBehaviour
        //タンクと衝突
        if(other.gameObject.tag == "TankTag" || other.gameObject.tag == "TankBulletTag")
        {
-           shake.Shake(0.25f, 0.1f);
+           shake.Shake(0.2f, 0.2f);
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -138,7 +129,7 @@ public class PlayerController : MonoBehaviour
        }
        if(other.gameObject.tag == "ShipBulletTag")
        {
-           shake.Shake(0.25f, 0.1f);
+           shake.Shake(0.2f, 0.2f);
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
@@ -153,10 +144,8 @@ public class PlayerController : MonoBehaviour
            this.isEnd = true;
            this.stateText.GetComponent<Text>().text = "Game Over";
            this.retryButton.GetComponent<Button>();
-        //    Destroy(this.gameObject);
            this.gameObject.SetActive(false);
            GameObject explosion = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
-           //    audioSource.PlayOneShot(planeExplosionSound);
            Destroy(explosion, 0.3f);
            playerHPSlider.value = (float)currentHp / (float)maxHp; ;
            var soundManager = GameObject.Find("SoundManager");
