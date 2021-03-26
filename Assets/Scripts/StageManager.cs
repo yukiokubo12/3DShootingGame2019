@@ -16,11 +16,10 @@ public class StageManager : MonoBehaviour
     private int numberOfPlanes;
     private int numberOfTanks;
 
-    public GameObject fields;
+    //フィールドの動的生成
     public GameObject field1;
     public GameObject field2;
     public GameObject field3;
-    public GameObject field4;
     private float offsetZ;
 
     private bool isAppearShip = false;
@@ -31,16 +30,13 @@ public class StageManager : MonoBehaviour
         numberOfPlanes = 0;
         numberOfTanks = 0;
         this.player = GameObject.Find("Player");
-        this.fields = GameObject.Find("Fields");
+
         this.field1 = GameObject.Find("Field1");
         this.field2 = GameObject.Find("Field2");
         this.field3 = GameObject.Find("Field3");
-        this.field4 = GameObject.Find("Field4");
-        // this.fields.SetActive(false);
-        // this.field1.SetActive(false);
-        // this.field2.SetActive(false);
-        // this.field3.SetActive(false);
-        // this.field4.SetActive(false);
+        this.field1.SetActive(true);
+        this.field2.SetActive(false);
+        this.field3.SetActive(false);
     }
 
     void Update()
@@ -66,32 +62,30 @@ public class StageManager : MonoBehaviour
             isAppearShip = true;
             Invoke("AppearShip", 26);
         }
-        //フィールドの動的生成
-        // if(player.transform.position.z > -200)
-        // {
-        //     this.field1.SetActive(true);
-        //     Debug.Log("フィールド1生成");
-        // }
-        // if(player.transform.position.z > 200)
-        // {
-        //     this.field2.SetActive(true);
-        //     Debug.Log("フィールド2生成");
-        // }
-        // if(player.transform.position.z > 600)
-        // {
-        //     this.field1.SetActive(true);
-        //     Debug.Log("フィールド3生成");
-        // }
-        // if(player.transform.position.z > 1000)
-        // {
-        //     this.field1.SetActive(true);
-        //     Debug.Log("フィールド4生成");
-        // }
 
-        void MakeField()
+        //フィールドの動的生成
+        Invoke("MakeField2", 5);
+        Invoke("MakeField3", 10);
+        if(player.transform.position.z > 400)
         {
-            float distance = Vector3.Distance(player.transform.position, field1.transform.position);
-            print(distance);
+            Destroy(this.field1);
+        }
+        if(player.transform.position.z > 800)
+        {
+            Destroy(this.field2);
+        }
+        if(player.transform.position.z > 1200)
+        {
+            Destroy(this.field3);
+        }
+
+        void MakeField2()
+        {
+            this.field2.GetComponent<GameObject>();
+        }
+        void MakeField3()
+        {
+            this.field3.SetActive(true);
         }
     }
 

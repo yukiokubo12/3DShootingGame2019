@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
        //飛行機、建物と衝突
        if(other.gameObject.tag == "PlaneTag" || other.gameObject.tag == "BuildingTag")
        {
-           shake.Shake(0.25f, 0.1f);
+           shake.Shake(0.2f, 0.2f);
 
         //    var shake = GameObject.Find("MainCamera") ;
         //    shake.GetComponent<CameraShake>().Shake(1f, 1f);
@@ -113,6 +113,8 @@ public class PlayerController : MonoBehaviour
            int damage = 10;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
+           var soundManager = GameObject.Find("SoundManager");
+           soundManager.GetComponent<SoundManager>().PlayerDamageSound();
        }
        //飛行機弾との衝突
        if(other.gameObject.tag == "PlaneBulletTag")
@@ -121,6 +123,8 @@ public class PlayerController : MonoBehaviour
            int damage = 5;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
+           var soundManager = GameObject.Find("SoundManager");
+           soundManager.GetComponent<SoundManager>().PlayerDamageSound();
        }
        //タンクと衝突
        if(other.gameObject.tag == "TankTag" || other.gameObject.tag == "TankBulletTag")
@@ -129,6 +133,8 @@ public class PlayerController : MonoBehaviour
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
+           var soundManager = GameObject.Find("SoundManager");
+           soundManager.GetComponent<SoundManager>().PlayerDamageSound();
        }
        if(other.gameObject.tag == "ShipBulletTag")
        {
@@ -136,6 +142,8 @@ public class PlayerController : MonoBehaviour
            int damage = 20;
            this.currentHp -= damage;
            playerHPSlider.value = (float)currentHp / maxHp;
+           var soundManager = GameObject.Find("SoundManager");
+           soundManager.GetComponent<SoundManager>().PlayerDamageSound();
        }
        //自機消滅、爆発
        if(this.currentHp <= 0)
@@ -151,6 +159,8 @@ public class PlayerController : MonoBehaviour
            //    audioSource.PlayOneShot(planeExplosionSound);
            Destroy(explosion, 0.3f);
            playerHPSlider.value = (float)currentHp / (float)maxHp; ;
+           var soundManager = GameObject.Find("SoundManager");
+           soundManager.GetComponent<SoundManager>().PlayerDamageSound();
        }
    }
 }

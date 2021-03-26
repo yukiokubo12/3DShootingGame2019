@@ -11,13 +11,13 @@ public class PlaneEnemyController : MonoBehaviour
     public GameObject explosionPrefab;
 
     //爆発音
-    AudioSource audioSource;
-    public AudioClip planeExplosionSound;
+    // AudioSource audioSource;
+    // public AudioClip planeExplosionSound;
 
     void Start()
     {
         this.planeRigidbody = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        // audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -30,10 +30,13 @@ public class PlaneEnemyController : MonoBehaviour
     {
         if(other.gameObject.tag == "BulletTag" || other.gameObject.tag == "PlayerTag")
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
             GameObject explosion = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
             var scoreManager = GameObject.Find("GameSystem");
             scoreManager.GetComponent<ScoreManager>().SetScore(1);
+
+            var soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundManager>().PlaneExplosionSound();
             // audioSource.PlayOneShot(planeExplosionSound);
             Destroy(explosion, 0.3f);
             // Debug.Log("敵爆発");

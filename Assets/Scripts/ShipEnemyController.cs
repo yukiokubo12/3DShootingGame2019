@@ -25,7 +25,7 @@ public class ShipEnemyController : MonoBehaviour
 
     void Start()
     {
-        this.maxShipHp = 50;
+        this.maxShipHp = 600;
         this.currentShipHp = this.maxShipHp;
         this.shipRigidbody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
@@ -72,6 +72,9 @@ public class ShipEnemyController : MonoBehaviour
             toTitleButton.GetComponent<GameSystem>().ShowTitleButton();
             var clearText = GameObject.Find("GameSystem");
             clearText.GetComponent<GameSystem>().ShowClearText();
+
+            var soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundManager>().ShipExplosionSound();
 
             // audioSource.PlayOneShot(tankExplosionSound);
             // Destroy(explosion, 0.3f);

@@ -8,8 +8,8 @@ public class BulletController : MonoBehaviour
     public GameObject bullet;
     public GameObject bulletPos;
     public float speed = 20000f;
-    AudioSource audioSource;
-    public AudioClip playerBulletSound;
+    // AudioSource audioSource;
+    // public AudioClip playerBulletSound;
 
     private float interval = 0.2f;
     private float time = 0f;
@@ -24,7 +24,7 @@ public class BulletController : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        // audioSource = GetComponent<AudioSource>();
         // MP
         this.playerMPSlider.value = 1;
         this.maxMp = 150;
@@ -38,7 +38,6 @@ public class BulletController : MonoBehaviour
         {
             GameObject bullets = Instantiate(bullet) as GameObject;
             // bullets.GetComponent<ScoreController>().SetText(scoreText);
-            
             int attack = 10;
             this.currentMp -= attack;
             playerMPSlider.value = (float)currentMp / maxMp;
@@ -47,7 +46,11 @@ public class BulletController : MonoBehaviour
             Vector3 force;
             force = this.gameObject.transform.forward * speed;
             bullets.GetComponent<Rigidbody>().AddForce(force);
-            audioSource.PlayOneShot(playerBulletSound);
+            // audioSource.PlayOneShot(playerBulletSound);
+            var soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundManager>().PlayerBulletSound();
+            // var soundManager = GameObject.Find("SoundManager");
+            // soundManager.GetComponent<SoundManager>().ShipExplosionSound();
             Destroy(bullets, 1.5f);
         }
         
