@@ -12,7 +12,7 @@ public class TankEnemyController : MonoBehaviour
 
     void Start()
     {
-        this.maxTankHp = 30;
+        this.maxTankHp = 100;
         this.currentTankHp = this.maxTankHp;
         this.tankRigidbody = GetComponent<Rigidbody>();
     }
